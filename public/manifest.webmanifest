@@ -1,0 +1,16 @@
+{
+  "name": "Vanguard Wholesale POS & Inventory",
+  "short_name": "Wholesale POS",
+  "description": "Next-Gen Wholesale POS & Inventory ERP Terminal with multi-unit packaging and trade credit",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080c14",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}

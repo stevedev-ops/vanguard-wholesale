@@ -54,25 +54,32 @@ export const CustomerModal: React.FC<CustomerModalProps> = ({ customer, onClose 
 
   return (
     <div className="modal-backdrop no-print" onClick={onClose}>
-      <div className="modal-sheet" onClick={(e) => e.stopPropagation()} style={{ maxWidth: "620px" }}>
-        <div className="modal-header">
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <Building size={20} color="var(--accent-primary)" />
-            <div>
-              <h2 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)" }}>
-                {isEditing ? "Edit Trade Customer" : "New Wholesale Trade Account"}
-              </h2>
-              <span style={{ fontSize: "0.76rem", color: "var(--text-secondary)" }}>
-                Configure credit limit, B2B payment terms, and tax identification
-              </span>
+      <div
+        className="modal-sheet"
+        onClick={(e) => e.stopPropagation()}
+        style={{ maxWidth: "620px", maxHeight: "88vh" }}
+      >
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: "flex", flexDirection: "column", height: "100%", overflow: "hidden" }}
+        >
+          <div className="modal-header">
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <Building size={20} color="var(--accent-primary)" />
+              <div>
+                <h2 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--text-primary)" }}>
+                  {isEditing ? "Edit Trade Customer" : "New Wholesale Trade Account"}
+                </h2>
+                <span style={{ fontSize: "0.76rem", color: "var(--text-secondary)" }}>
+                  Configure credit limit, B2B payment terms, and tax identification
+                </span>
+              </div>
             </div>
+            <button type="button" className="btn-icon" onClick={onClose}>
+              <X size={18} />
+            </button>
           </div>
-          <button className="btn-icon" onClick={onClose}>
-            <X size={18} />
-          </button>
-        </div>
 
-        <form onSubmit={handleSubmit}>
           <div className="modal-body">
             <div className="form-grid-2">
               <div className="form-group" style={{ gridColumn: "span 2" }}>

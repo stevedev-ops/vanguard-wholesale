@@ -46,7 +46,8 @@ export const StockAdjustModal: React.FC<StockAdjustModalProps> = ({ product, onC
   return (
     <div className="modal-backdrop no-print" onClick={onClose}>
       <div className="modal-sheet" onClick={(e) => e.stopPropagation()} style={{ maxWidth: "540px" }}>
-        <div className="modal-header">
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", height: "100%", overflow: "hidden" }}>
+          <div className="modal-header">
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
             <PackageCheck size={20} color="var(--accent-primary)" />
             <div>
@@ -58,13 +59,12 @@ export const StockAdjustModal: React.FC<StockAdjustModalProps> = ({ product, onC
               </span>
             </div>
           </div>
-          <button className="btn-icon" onClick={onClose}>
+          <button type="button" className="btn-icon" onClick={onClose}>
             <X size={18} />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="modal-body">
+        <div className="modal-body">
             {/* Current Stock Banner */}
             <div
               style={{

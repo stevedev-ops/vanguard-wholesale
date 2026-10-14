@@ -90,7 +90,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
   return (
     <div className="modal-backdrop no-print" onClick={onClose}>
       <div className="modal-sheet" onClick={(e) => e.stopPropagation()} style={{ maxWidth: "780px" }}>
-        <div className="modal-header">
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", height: "100%", overflow: "hidden" }}>
+          <div className="modal-header">
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
             <Box size={20} color="var(--accent-primary)" />
             <div>
@@ -102,13 +103,12 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) 
               </span>
             </div>
           </div>
-          <button className="btn-icon" onClick={onClose}>
+          <button type="button" className="btn-icon" onClick={onClose}>
             <X size={18} />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="modal-body">
+        <div className="modal-body">
             {/* Section 1: Basic Product Identity */}
             <div className="form-grid-2">
               <div className="form-group" style={{ gridColumn: "span 2" }}>
